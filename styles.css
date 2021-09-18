@@ -1,0 +1,107 @@
+.container {
+  background-color: #8bd3a4;
+  width: 80%;
+  padding: 50px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #40342f;
+}
+
+.byline {
+  text-align: center;
+}
+
+h1,
+h2,
+.current-temp {
+  font-weight: bold;
+}
+
+.city-name {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.current-day {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.weather-today {
+  margin: 40px 0 25px 0;
+}
+
+.float-right {
+  display: block;
+  float: right;
+}
+
+.fas {
+  color: #fff;
+  margin-left: 45%;
+  font-size: 24px;
+}
+
+.current {
+  font-size: 50px;
+}
+
+.weekday {
+  padding: 10px 0px;
+}
+
+hr {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+input {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+#search-city {
+  background-color: #554640;
+  color: #f0f0f0;
+  transition: all 200ms ease-in-out;
+  padding: 5px 10px;
+  width: 25%;
+}
+
+#search-city:hover {
+  background-color: #5e4d47;
+  box-shadow: 0 2px 8px 0 rgba(61, 49, 49, 0.3);
+}
+
+#search-input {
+  width: 75%;
+}
+
+.converter {
+  display: inline;
+  text-align: center;
+}
+
+.converter a {
+  text-decoration: none;
+  color: #554640;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.converter a:hover {
+  color: #40342f;
+}
+
+.github-link {
+  text-decoration: none;
+}

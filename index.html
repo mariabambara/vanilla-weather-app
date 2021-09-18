@@ -4,16 +4,111 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Weather App</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/18ed5c184d.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Weather</title>
   </head>
   <body>
+    <div class="container">
+      <h1 class="city-name">Toronto</h1>
+      <div class="row">
+        <div class="col-12 text-center">
+          <form class="form-inline">
+            <input
+              type="search"
+              id="search-input"
+              autocomplete="off"
+              aria-label="Search for your city"
+              placeholder="Enter your city..."
+            />
+            <input type="submit" id="search-city" value="Search" />
+          </form>
+        </div>
+      </div>
+      <h2 class="current-day" id="today">Sunday</h2>
+      <div class="row converter">
+        <div class="col-12">
+          <a href="#" id="celcius-link">ºC</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+            href="#"
+            id="farenheit-link"
+            >ºF</a
+          >
+        </div>
+      </div>
+      <div class="row weather-today">
+        <div class="col-5"><i class="fas fa-sun current float-right"></i></div>
+        <div class="col-2"></div>
+        <div class="col-5 current-temp">
+          <p>
+            <span class="degrees" id="today-temp">21º</span> <br />
+            Cloudy
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="row weekday">
+        <div class="col-4"><p class="float-right">Mon.</p></div>
+        <div class="col-4"><i class="fas fa-bolt"></i></div>
+        <div class="col-4"><p class="degrees">20º</p></div>
+      </div>
+      <div class="row weekday">
+        <div class="col-2"></div>
+        <div class="col-2"><p class="float-right">Tues.</p></div>
+        <div class="col-4"><i class="fas fa-cloud"></i></div>
+        <div class="col-2"><p class="degrees">20º</p></div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row weekday">
+        <div class="col-2"></div>
+        <div class="col-2"><p class="float-right">Wed.</p></div>
+        <div class="col-4"><i class="fas fa-sun"></i></div>
+        <div class="col-2"><p class="degrees">20º</p></div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row weekday">
+        <div class="col-2"></div>
+        <div class="col-2"><p class="float-right">Thurs.</p></div>
+        <div class="col-4"><i class="fas fa-cloud-showers-heavy"></i></div>
+        <div class="col-2"><p class="degrees">20º</p></div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row weekday">
+        <div class="col-2"></div>
+        <div class="col-2"><p class="float-right">Fri.</p></div>
+        <div class="col-4"><i class="fas fa-cloud-sun"></i></div>
+        <div class="col-2"><p class="degrees">20º</p></div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row weekday">
+        <div class="col-2"></div>
+        <div class="col-2"><p class="float-right">Sat.</p></div>
+        <div class="col-4"><i class="fas fa-sun"></i></div>
+        <div class="col-2"><p class="degrees">20º</p></div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+    <div class="row byline">
+      <p>
+        <a
+          href="https://github.com/mariabambara/weather-app"
+          target="_blank"
+          rel="noopener"
+          class="github-link"
+          >Open-sourced code</a
+        >
+        by Maria Bambara
+      </p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
