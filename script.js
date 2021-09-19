@@ -79,3 +79,5 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-input").value;
   searchInput(city);
 }
+
+searchInput("Toronto");

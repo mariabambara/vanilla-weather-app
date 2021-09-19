@@ -103,3 +103,7 @@ form {
 #description {
   text-transform: capitalize;
 }
+
+img {
+  margin-top: -24px;
+}
