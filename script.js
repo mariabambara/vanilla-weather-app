@@ -33,21 +33,6 @@ function showCity() {
   heading.innerHTML = document.querySelector("#search-input").value;
 }
 
-// select unit as celcius or farenheit
-let celciusLink = document.querySelector("#celcius-link");
-let farenheitLink = document.querySelector("#farenheit-link");
-let degrees = document.querySelector("#today-temp");
-
-celciusLink.addEventListener("click", celcius);
-function celcius(event) {
-  degrees.innerHTML = "21ºC";
-}
-
-farenheitLink.addEventListener("click", farenheit);
-function farenheit(event) {
-  degrees.innerHTML = "69.8ºF";
-}
-
 // show temperature and description of the city that has been searched
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
@@ -55,10 +40,11 @@ form.addEventListener("submit", handleSubmit);
 let descriptionElement = document.querySelector("#description");
 
 function displayTemperature(response) {
+  celciusTemperature = response.data.main.temp;
+
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#today-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#today-temp").innerHTML =
+    Math.round(celciusTemperature);
   descriptionElement.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -79,5 +65,30 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-input").value;
   searchInput(city);
 }
+
+// select unit as celcius or farenheit
+let celciusTemperature = null;
+let degrees = document.querySelector("#today-temp");
+
+function farenheit(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  degrees.innerHTML = Math.round(farenheitTemperature);
+}
+
+function celcius(event) {
+  event.preventDefault();
+  farenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  degrees.innerHTML = Math.round(celciusTemperature);
+}
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", farenheit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", celcius);
 
 searchInput("Toronto");

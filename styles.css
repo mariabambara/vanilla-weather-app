@@ -87,7 +87,7 @@ form {
 
 .converter a {
   text-decoration: none;
-  color: #554640;
+  color: #9c9694;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
@@ -106,4 +106,9 @@ form {
 
 img {
   margin-top: -24px;
+}
+
+.converter .active {
+  color: #554640;
+  cursor: default;
 }
