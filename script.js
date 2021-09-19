@@ -40,15 +40,18 @@ function farenheit(event) {
   degrees.innerHTML = "69.8ºF";
 }
 
-// show temperature of the city that has been searched
+// show temperature and description of the city that has been searched
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
+
+let descriptionElement = document.querySelector("#description");
 
 function displayTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#today-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function searchInput(city) {
