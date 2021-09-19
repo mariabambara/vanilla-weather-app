@@ -13,6 +13,14 @@ let date = days[currentDate.getDay()];
 let hours = currentDate.getHours();
 let minutes = currentDate.getMinutes();
 
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+
 let today = document.querySelector("#today");
 today.innerHTML = `${date} ${hours}:${minutes}`;
 
