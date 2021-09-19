@@ -112,3 +112,18 @@ img {
   color: #554640;
   cursor: default;
 }
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px;
+  }
+  form,
+  input {
+    display: block;
+    margin: 0 auto;
+  }
+  #search-city {
+    width: 40%;
+    margin-top: 10px;
+  }
+}
