@@ -44,6 +44,11 @@ h2,
 
 .weekday {
   padding: 10px 0px;
+  text-align: center;
+}
+
+.min-temp {
+  color: #77645b;
 }
 
 hr {
@@ -87,7 +92,7 @@ form {
 
 .converter a {
   text-decoration: none;
-  color: #9c9694;
+  color: #5e5e5e;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }

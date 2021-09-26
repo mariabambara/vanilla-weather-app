@@ -31,22 +31,50 @@ form.addEventListener("submit", handleSubmit);
 let descriptionElement = document.querySelector("#description");
 
 // show forecast for upcoming days
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-
   let forecastHTML = ``;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index !== 0 && index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="row weekday">
-        <div class="col-4"><p class="float-right">${day}</p></div>
-        <div class="col-4"></div>
-        <div class="col-4"><p class="degrees">20º</p></div>
+        <div class="col-4"><p>${formatDay(forecastDay.dt)}</p></div>
+        <div class="col-4">
+        <img src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" width="60px">
+        </div>
+        <div class="col-2"><p class="degrees">${Math.round(
+          forecastDay.temp.max
+        )}º</p></div>
+        <div class="col-2 min-temp"><p class="degrees">${Math.round(
+          forecastDay.temp.min
+        )}º</p></div>
       </div>
   `;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
