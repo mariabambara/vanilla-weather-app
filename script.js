@@ -24,6 +24,27 @@ if (minutes < 10) {
 let today = document.querySelector("#today");
 today.innerHTML = `${date} ${hours}:${minutes}`;
 
+// show forecast for upcoming days
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = ``;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="row weekday">
+        <div class="col-4"><p class="float-right">${day}</p></div>
+        <div class="col-4"></div>
+        <div class="col-4"><p class="degrees">20º</p></div>
+      </div>
+  `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // update h1 to be the city searched
 let searchCity = document.querySelector("#search-city");
 let heading = document.querySelector("h1");
@@ -94,3 +115,4 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", celcius);
 
 searchInput("Toronto");
+displayForecast();
