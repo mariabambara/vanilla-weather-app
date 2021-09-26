@@ -85,22 +85,6 @@ form {
   width: 75%;
 }
 
-.converter {
-  display: inline;
-  text-align: center;
-}
-
-.converter a {
-  text-decoration: none;
-  color: #5e5e5e;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-}
-
-.converter a:hover {
-  color: #40342f;
-}
-
 .github-link {
   text-decoration: none;
 }
@@ -109,13 +93,12 @@ form {
   text-transform: capitalize;
 }
 
-img {
-  margin: -24px;
+sup {
+  top: -0.25em;
 }
 
-.converter .active {
-  color: #554640;
-  cursor: default;
+img {
+  margin: -24px;
 }
 
 @media (max-width: 767px) {

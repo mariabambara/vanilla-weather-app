@@ -116,29 +116,4 @@ function handleSubmit(event) {
   searchInput(city);
 }
 
-// select unit as celcius or farenheit
-let celciusTemperature = null;
-let degrees = document.querySelector("#today-temp");
-
-function farenheit(event) {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
-  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  degrees.innerHTML = Math.round(farenheitTemperature);
-}
-
-function celcius(event) {
-  event.preventDefault();
-  farenheitLink.classList.remove("active");
-  celciusLink.classList.add("active");
-  degrees.innerHTML = Math.round(celciusTemperature);
-}
-
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", farenheit);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", celcius);
-
 searchInput("Toronto");
