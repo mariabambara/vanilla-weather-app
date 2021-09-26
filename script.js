@@ -24,8 +24,14 @@ if (minutes < 10) {
 let today = document.querySelector("#today");
 today.innerHTML = `${date} ${hours}:${minutes}`;
 
+// show temperature and description of the city that has been searched
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSubmit);
+
+let descriptionElement = document.querySelector("#description");
+
 // show forecast for upcoming days
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -45,20 +51,12 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-// update h1 to be the city searched
-let searchCity = document.querySelector("#search-city");
-let heading = document.querySelector("h1");
-
-searchCity.addEventListener("click", showCity);
-function showCity() {
-  heading.innerHTML = document.querySelector("#search-input").value;
+// add api for real time date for the forecast
+function getForecast(coordinates) {
+  let apiKey = "7458bcff34170905446c53d8d18fc507";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
-
-// show temperature and description of the city that has been searched
-let form = document.querySelector("form");
-form.addEventListener("submit", handleSubmit);
-
-let descriptionElement = document.querySelector("#description");
 
 function displayTemperature(response) {
   celciusTemperature = response.data.main.temp;
@@ -75,6 +73,8 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   let windSpeed = document.querySelector("#speed");
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.coord);
 }
 
 function searchInput(city) {
@@ -115,4 +115,3 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", celcius);
 
 searchInput("Toronto");
-displayForecast();
